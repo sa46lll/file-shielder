@@ -2,6 +2,4 @@ dependencies {
 	implementation(project(':fileshield-domain'))
 	implementation(project(':fileshield-application'))
 	implementation(project(':fileshield-infrastructure'))
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
