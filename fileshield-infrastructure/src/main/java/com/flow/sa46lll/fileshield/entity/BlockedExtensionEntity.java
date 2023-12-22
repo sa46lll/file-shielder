@@ -2,14 +2,17 @@ package com.flow.sa46lll.fileshield.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "blocked_extension")
-public class BlockedExtentionEntity {
+@EntityListeners(AuditingEntityListener.class)
+public class BlockedExtensionEntity extends AuditEntity {
 
     @Id
     @Column(name = "blocked_extension_id")
@@ -25,7 +28,7 @@ public class BlockedExtentionEntity {
     @Column(name = "is_blocked")
     private boolean isBlocked;
 
-    public BlockedExtentionEntity(final Long id,
+    public BlockedExtensionEntity(final Long id,
                                   final String extension,
                                   final boolean isFixed,
                                   final boolean isBlocked) {
@@ -35,6 +38,6 @@ public class BlockedExtentionEntity {
         this.isBlocked = isBlocked;
     }
 
-    protected BlockedExtentionEntity() {
+    protected BlockedExtensionEntity() {
     }
 }
