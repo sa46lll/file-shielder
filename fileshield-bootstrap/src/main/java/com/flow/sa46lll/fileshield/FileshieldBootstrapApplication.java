@@ -1,13 +1,13 @@
-package com.flow.fileshield;
+package com.flow.sa46lll.fileshield;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FileShieldApplication {
+public class FileshieldBootstrapApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FileShieldApplication.class, args);
+		SpringApplication.run(FileshieldBootstrapApplication.class, args);
 	}
 
 }
