@@ -2,7 +2,9 @@ package com.flow.sa46lll.fileshield.mapper;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
 import com.flow.sa46lll.fileshield.Extension;
+import com.flow.sa46lll.fileshield.ExtensionType;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
+import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
 import java.util.List;
 
 public class BlockedExtensionMapper {
@@ -20,14 +22,14 @@ public class BlockedExtensionMapper {
         return new BlockedExtension(
                 entity.getId(),
                 Extension.of(entity.getExtension()),
-                entity.isFixed(),
+                ExtensionType.from(entity.getExtensionType().name()),
                 entity.isBlocked());
     }
 
     public static BlockedExtensionEntity toEntity(BlockedExtension blockedExtension) {
         return new BlockedExtensionEntity(
                 blockedExtension.getExtension().getExtension(),
-                blockedExtension.isFixed(),
+                ExtensionTypeEntity.from(blockedExtension.getExtensionType().name()),
                 blockedExtension.isBlocked());
     }
 }

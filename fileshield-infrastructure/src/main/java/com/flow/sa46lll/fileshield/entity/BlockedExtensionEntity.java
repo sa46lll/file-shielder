@@ -3,6 +3,8 @@ package com.flow.sa46lll.fileshield.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,17 +24,18 @@ public class BlockedExtensionEntity extends AuditEntity {
     @Column(name = "extension")
     private String extension;
 
-    @Column(name = "is_fixed")
-    private boolean isFixed;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "extension_type")
+    private ExtensionTypeEntity extensionType;
 
     @Column(name = "is_blocked")
     private boolean isBlocked;
 
     public BlockedExtensionEntity(final String extension,
-                                  final boolean isFixed,
+                                  final ExtensionTypeEntity extensionType,
                                   final boolean isBlocked) {
         this.extension = extension;
-        this.isFixed = isFixed;
+        this.extensionType = extensionType;
         this.isBlocked = isBlocked;
     }
 
@@ -47,8 +50,8 @@ public class BlockedExtensionEntity extends AuditEntity {
         return extension;
     }
 
-    public boolean isFixed() {
-        return isFixed;
+    public ExtensionTypeEntity getExtensionType() {
+        return extensionType;
     }
 
     public boolean isBlocked() {

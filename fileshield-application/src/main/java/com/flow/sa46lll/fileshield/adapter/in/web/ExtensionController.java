@@ -7,6 +7,7 @@ import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCa
 import com.flow.sa46lll.fileshield.application.port.in.BlockFixedExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
 import com.flow.sa46lll.fileshield.application.port.in.UnBlockCustomExtensionUseCase;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +37,8 @@ public class ExtensionController {
 
     /**
      * 고정 확장자 차단
+     *
+     * @param extensionId 차단할 고정 확장자 식별자
      */
     @PatchMapping("/{extensionId}/fixed-block")
     public ApiResponse<Void> block(@PathVariable("extensionId") final Long extensionId) {
@@ -59,7 +62,7 @@ public class ExtensionController {
      *
      * @param extensionId 차단 해제할 확장자 식별자
      */
-    @PostMapping("/{extensionId}/custom-unblock")
+    @DeleteMapping("/{extensionId}/custom-unblock")
     public ApiResponse<Void> unblock(@PathVariable("extensionId") final Long extensionId) {
         unBlockCustomExtensionUseCase.unblockCustomExtension(extensionId);
         return ApiResponse.ok();

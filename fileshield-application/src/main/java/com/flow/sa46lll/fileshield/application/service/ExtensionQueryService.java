@@ -25,7 +25,7 @@ public class ExtensionQueryService implements GetExtensionQuery {
                 .map(GetExtensionResponse::of)
                 .toList();
         List<GetExtensionResponse> customExtensions = extensions.stream()
-                .filter(extension -> !extension.isFixed())
+                .filter(BlockedExtension::isCustom)
                 .map(GetExtensionResponse::of)
                 .toList();
         return new GetExtensionsResponse(fixedExtensions, customExtensions);
