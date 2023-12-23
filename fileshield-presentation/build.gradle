@@ -1,0 +1,11 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.2.1'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
