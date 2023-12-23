@@ -3,7 +3,7 @@ package com.flow.sa46lll.fileshield.adapter.in.web;
 import com.flow.sa46lll.fileshield.application.dto.ApiResponse;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
-import com.flow.sa46lll.fileshield.application.port.in.BlockExtensionUseCase;
+import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/file-extensions")
 public class ExtensionController {
 
-    private final BlockExtensionUseCase blockExtensionUseCase;
+    private final BlockCustomExtensionUseCase blockCustomExtensionUseCase;
     private final GetExtensionQuery getExtensionQuery;
 
     public ExtensionController(final GetExtensionQuery getExtensionQuery,
-                               final BlockExtensionUseCase blockExtensionUseCase) {
-        this.blockExtensionUseCase = blockExtensionUseCase;
+                               final BlockCustomExtensionUseCase blockCustomExtensionUseCase) {
+        this.blockCustomExtensionUseCase = blockCustomExtensionUseCase;
         this.getExtensionQuery = getExtensionQuery;
     }
 
@@ -31,7 +31,7 @@ public class ExtensionController {
      */
     @PostMapping("/custom-block")
     public ApiResponse<Void> block(@RequestBody final BlockCustomExtensionCommand blockCustomExtensionCommand) {
-        blockExtensionUseCase.block(blockCustomExtensionCommand);
+        blockCustomExtensionUseCase.block(blockCustomExtensionCommand);
         return ApiResponse.ok();
     }
 
@@ -44,6 +44,4 @@ public class ExtensionController {
     public ApiResponse<GetExtensionsResponse> findAll() {
         return ApiResponse.ok(getExtensionQuery.findAll());
     }
-
-
 }
