@@ -2,7 +2,7 @@ package com.flow.sa46lll.fileshield;
 
 public class Extension {
 
-    String extension;
+    private String extension;
 
     public Extension(final String extension) {
         this.extension = extension;

@@ -61,4 +61,8 @@ public class BlockedExtensionEntity extends AuditEntity {
     public void block() {
         isBlocked = true;
     }
+
+    public void unblock() {
+        isBlocked = false;
+    }
 }

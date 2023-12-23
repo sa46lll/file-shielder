@@ -45,4 +45,13 @@ public class ExtensionPersistenceAdapter implements ExtensionPersistencePort {
 
         blockedExtension.block(); // 개선 필요
     }
+
+    @Override
+    public void unblockFixedExtension(Long extensionId) {
+        BlockedExtensionEntity blockedExtension =
+                blockedExtensionRepository.findByExtensionTypeAndId(ExtensionTypeEntity.FIXED, extensionId)
+                        .orElseThrow(() -> new IllegalArgumentException("확장자를 찾을 수 없습니다"));
+
+        blockedExtension.unblock();
+    }
 }
