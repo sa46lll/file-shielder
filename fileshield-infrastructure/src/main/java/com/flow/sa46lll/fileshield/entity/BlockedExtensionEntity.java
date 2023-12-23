@@ -21,7 +21,7 @@ public class BlockedExtensionEntity extends AuditEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "extension")
+    @Column(name = "extension", unique = true)
     private String extension;
 
     @Enumerated(EnumType.STRING)

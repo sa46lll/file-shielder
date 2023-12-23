@@ -52,6 +52,8 @@ public class ExtensionController {
 
     /**
      * 고정 확장자 차단 해제
+     *
+     * @param extensionId 차단 해제할 확장자 식별자
      */
     @PatchMapping("/{extensionId}/fixed-unblock")
     public ApiResponse<Void> unblockFixed(@PathVariable("extensionId") final Long extensionId) {
