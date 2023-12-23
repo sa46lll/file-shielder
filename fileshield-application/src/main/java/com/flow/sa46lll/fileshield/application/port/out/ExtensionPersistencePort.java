@@ -6,4 +6,6 @@ import java.util.List;
 public interface ExtensionPersistencePort {
 
     List<BlockedExtension> findAll();
+
+    void blockCustomExtension(BlockedExtension blockedExtension);
 }

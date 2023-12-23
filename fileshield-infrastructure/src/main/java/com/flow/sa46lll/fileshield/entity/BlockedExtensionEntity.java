@@ -28,11 +28,9 @@ public class BlockedExtensionEntity extends AuditEntity {
     @Column(name = "is_blocked")
     private boolean isBlocked;
 
-    public BlockedExtensionEntity(final Long id,
-                                  final String extension,
+    public BlockedExtensionEntity(final String extension,
                                   final boolean isFixed,
                                   final boolean isBlocked) {
-        this.id = id;
         this.extension = extension;
         this.isFixed = isFixed;
         this.isBlocked = isBlocked;
