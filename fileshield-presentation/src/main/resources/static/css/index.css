@@ -1,0 +1,106 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 600px;
+}
+
+.jumbotron {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+}
+
+.form-check-input {
+  margin-top: 0;
+  margin-right: 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group-append .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #ffffff;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.badge-secondary {
+  background-color: #6c757d;
+  margin-right: 0.5rem;
+}
+
+.badge .close {
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  padding-left: 0.2rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.elegant-checkbox .custom-control-label::before {
+  border-radius: 6px;
+}
+
+.elegant-checkbox .custom-control-label::after {
+  border-radius: 6px;
+}
+
+.input-group {
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  display: flex;
+}
+
+.input-group-append .btn {
+  border: 1px solid #ced4da;
+  border-left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+
+.input-group-append .btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
