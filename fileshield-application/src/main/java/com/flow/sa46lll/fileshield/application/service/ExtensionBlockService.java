@@ -3,11 +3,12 @@ package com.flow.sa46lll.fileshield.application.service;
 import com.flow.sa46lll.fileshield.BlockedExtension;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.application.port.in.UnBlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.out.ExtensionPersistencePort;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExtensionBlockService implements BlockCustomExtensionUseCase {
+public class ExtensionBlockService implements BlockCustomExtensionUseCase, UnBlockCustomExtensionUseCase {
 
     private final ExtensionPersistencePort extensionPersistencePort;
 
@@ -16,7 +17,7 @@ public class ExtensionBlockService implements BlockCustomExtensionUseCase {
     }
 
     @Override
-    public void block(final BlockCustomExtensionCommand blockCustomExtensionCommand) {
+    public void blockCustomExtension(final BlockCustomExtensionCommand blockCustomExtensionCommand) {
         BlockedExtension blockedExtension = blockCustomExtensionCommand.toDomain();
         extensionPersistencePort.blockCustomExtension(blockedExtension);
     }

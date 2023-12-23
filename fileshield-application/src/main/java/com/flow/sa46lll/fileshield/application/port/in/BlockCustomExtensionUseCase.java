@@ -4,7 +4,5 @@ import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 
 public interface BlockCustomExtensionUseCase {
 
-    void block(final BlockCustomExtensionCommand blockCustomExtensionCommand);
-
-    void unblock(Long extensionId);
+    void blockCustomExtension(final BlockCustomExtensionCommand blockCustomExtensionCommand);
 }

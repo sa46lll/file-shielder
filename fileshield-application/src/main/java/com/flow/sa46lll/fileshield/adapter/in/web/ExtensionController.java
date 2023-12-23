@@ -5,6 +5,7 @@ import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
+import com.flow.sa46lll.fileshield.application.port.in.UnBlockCustomExtensionUseCase;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExtensionController {
 
     private final BlockCustomExtensionUseCase blockCustomExtensionUseCase;
+    private final UnBlockCustomExtensionUseCase unBlockCustomExtensionUseCase;
     private final GetExtensionQuery getExtensionQuery;
 
-    public ExtensionController(final GetExtensionQuery getExtensionQuery,
-                               final BlockCustomExtensionUseCase blockCustomExtensionUseCase) {
+    public ExtensionController(final BlockCustomExtensionUseCase blockCustomExtensionUseCase,
+                               final UnBlockCustomExtensionUseCase unBlockCustomExtensionUseCase,
+                               final GetExtensionQuery getExtensionQuery) {
         this.blockCustomExtensionUseCase = blockCustomExtensionUseCase;
+        this.unBlockCustomExtensionUseCase = unBlockCustomExtensionUseCase;
         this.getExtensionQuery = getExtensionQuery;
     }
 
@@ -32,7 +36,7 @@ public class ExtensionController {
      */
     @PostMapping("/custom-block")
     public ApiResponse<Void> block(@RequestBody final BlockCustomExtensionCommand blockCustomExtensionCommand) {
-        blockCustomExtensionUseCase.block(blockCustomExtensionCommand);
+        blockCustomExtensionUseCase.blockCustomExtension(blockCustomExtensionCommand);
         return ApiResponse.ok();
     }
 
@@ -43,7 +47,7 @@ public class ExtensionController {
      */
     @PostMapping("/{extensionId}/custom-unblock")
     public ApiResponse<Void> unblock(@PathVariable("extensionId") final Long extensionId) {
-        blockCustomExtensionUseCase.unblock(extensionId);
+        unBlockCustomExtensionUseCase.unblock(extensionId);
         return ApiResponse.ok();
     }
 
