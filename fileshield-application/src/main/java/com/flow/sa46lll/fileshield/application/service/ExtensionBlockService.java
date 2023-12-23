@@ -20,4 +20,9 @@ public class ExtensionBlockService implements BlockCustomExtensionUseCase {
         BlockedExtension blockedExtension = blockCustomExtensionCommand.toDomain();
         extensionPersistencePort.blockCustomExtension(blockedExtension);
     }
+
+    @Override
+    public void unblock(Long extensionId) {
+        extensionPersistencePort.deleteCustomExtensionById(extensionId);
+    }
 }

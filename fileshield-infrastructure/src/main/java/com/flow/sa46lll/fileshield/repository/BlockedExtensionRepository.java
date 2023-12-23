@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BlockedExtensionRepository extends JpaRepository<BlockedExtensionEntity, Long> {
 
+    void deleteByIsFixedAndId(boolean isFixed, Long id);
 }
