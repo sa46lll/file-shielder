@@ -16,4 +16,20 @@ public class BlockedExtension {
         this.isFixed = isFixed;
         this.isBlocked = isBlocked;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Extension getExtension() {
+        return extension;
+    }
+
+    public boolean isFixed() {
+        return isFixed;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
+    }
 }

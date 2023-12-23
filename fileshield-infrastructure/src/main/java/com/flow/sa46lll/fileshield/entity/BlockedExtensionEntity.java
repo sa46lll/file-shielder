@@ -40,4 +40,20 @@ public class BlockedExtensionEntity extends AuditEntity {
 
     protected BlockedExtensionEntity() {
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getExtension() {
+        return extension;
+    }
+
+    public boolean isFixed() {
+        return isFixed;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
+    }
 }

@@ -14,4 +14,8 @@ public class Extension {
         }
         return new Extension(extension);
     }
+
+    public String getExtension() {
+        return extension;
+    }
 }
