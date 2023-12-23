@@ -54,4 +54,8 @@ public class BlockedExtensionEntity extends AuditEntity {
     public boolean isBlocked() {
         return isBlocked;
     }
+
+    public void block() {
+        isBlocked = true;
+    }
 }

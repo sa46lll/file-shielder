@@ -4,9 +4,11 @@ import com.flow.sa46lll.fileshield.application.dto.ApiResponse;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.application.port.in.BlockFixedExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
 import com.flow.sa46lll.fileshield.application.port.in.UnBlockCustomExtensionUseCase;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,14 +21,26 @@ public class ExtensionController {
 
     private final BlockCustomExtensionUseCase blockCustomExtensionUseCase;
     private final UnBlockCustomExtensionUseCase unBlockCustomExtensionUseCase;
+    private final BlockFixedExtensionUseCase blockFixedExtensionUseCase;
     private final GetExtensionQuery getExtensionQuery;
 
     public ExtensionController(final BlockCustomExtensionUseCase blockCustomExtensionUseCase,
                                final UnBlockCustomExtensionUseCase unBlockCustomExtensionUseCase,
+                                 final BlockFixedExtensionUseCase blockFixedExtensionUseCase,
                                final GetExtensionQuery getExtensionQuery) {
         this.blockCustomExtensionUseCase = blockCustomExtensionUseCase;
         this.unBlockCustomExtensionUseCase = unBlockCustomExtensionUseCase;
+        this.blockFixedExtensionUseCase = blockFixedExtensionUseCase;
         this.getExtensionQuery = getExtensionQuery;
+    }
+
+    /**
+     * 고정 확장자 차단
+     */
+    @PatchMapping("/{extensionId}/fixed-block")
+    public ApiResponse<Void> block(@PathVariable("extensionId") final Long extensionId) {
+        blockFixedExtensionUseCase.blockFixedExtension(extensionId);
+        return ApiResponse.ok();
     }
 
     /**
@@ -47,7 +61,7 @@ public class ExtensionController {
      */
     @PostMapping("/{extensionId}/custom-unblock")
     public ApiResponse<Void> unblock(@PathVariable("extensionId") final Long extensionId) {
-        unBlockCustomExtensionUseCase.unblock(extensionId);
+        unBlockCustomExtensionUseCase.unblockCustomExtension(extensionId);
         return ApiResponse.ok();
     }
 

@@ -10,4 +10,6 @@ public interface ExtensionPersistencePort {
     void blockCustomExtension(BlockedExtension blockedExtension);
 
     void deleteCustomExtensionById(Long extensionId);
+
+    void blockFixedExtension(Long extensionId);
 }
