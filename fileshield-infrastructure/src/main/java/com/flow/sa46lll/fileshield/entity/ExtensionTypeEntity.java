@@ -1,7 +1,6 @@
 package com.flow.sa46lll.fileshield.entity;
 
 public enum ExtensionTypeEntity {
-
     CUSTOM,
     FIXED;
 

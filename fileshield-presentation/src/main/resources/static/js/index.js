@@ -53,11 +53,16 @@ $(document).ready(function () {
           console.log('Custom extension added successfully.');
           addCustomExtension(response.data.extensionId);
         } else {
-          alert("이미 존재하는 확장자입니다.");
+          console.log('Failed to add custom extension.');
         }
       },
-      error: function () {
-        console.error('Error in Ajax request.');
+      error: function (xhr, textStatus, errorThrown) {
+        if (xhr.status === 409) {
+          console.log('Conflict: Custom extension cannot be deleted due to conflict.');
+          alert('이미 존재하는 확장자입니다.');
+        } else {
+          console.error('Error in Ajax request:', textStatus, errorThrown);
+        }
       }
     });
   });
@@ -92,7 +97,6 @@ $('#customExtensionsList').on('click', '.close', function () {
     contentType: 'application/json',
     async: false,
     success: function (response) {
-      console.log(response)
       if (response) {
         console.log('Custom extension deleted successfully.');
         removeCustomExtension(badge);

@@ -1,10 +1,10 @@
 package com.flow.sa46lll.fileshield.adapter;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
+import com.flow.sa46lll.fileshield.mapper.BlockedExtensionMapper;
 import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
 import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
-import com.flow.sa46lll.fileshield.mapper.BlockedExtensionMapper;
 import com.flow.sa46lll.fileshield.repository.BlockedExtensionRepository;
 import java.util.List;
 import org.springframework.stereotype.Component;
@@ -46,5 +46,10 @@ public class ExtensionPersistenceAdapter implements ExtensionPersistencePort {
     @Override
     public void deleteCustomExtensionById(Long extensionId) {
         blockedExtensionRepository.deleteByExtensionTypeAndId(ExtensionTypeEntity.CUSTOM, extensionId);
+    }
+
+    @Override
+    public boolean existsByExtension(String extension) {
+        return blockedExtensionRepository.existsByExtension(extension);
     }
 }

@@ -1,6 +1,7 @@
 package com.flow.sa46lll.fileshield.adapter.in.web;
 
 import com.flow.sa46lll.fileshield.dto.ApiResponse;
+import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,13 @@ public class ApiControllerAdvice {
     public <T> ApiResponse<T> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         log.info("handleHttpRequestMethodNotSupportedException: ", e);
         return ApiResponse.failure(e.getBody().getTitle());
+    }
+
+    @ExceptionHandler(ExtensionDuplicationException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public <T> ApiResponse<T> handleExtensionDuplicationException(ExtensionDuplicationException e) {
+        log.info("handleExtensionDuplicationException: ", e);
+        return ApiResponse.failure(e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)

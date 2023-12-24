@@ -1,6 +1,5 @@
 package com.flow.sa46lll.fileshield.api;
 
-import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

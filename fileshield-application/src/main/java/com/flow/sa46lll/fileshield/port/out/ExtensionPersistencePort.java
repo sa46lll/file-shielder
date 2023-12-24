@@ -12,4 +12,6 @@ public interface ExtensionPersistencePort {
     void updateExtensionBlockStatus(final BlockedExtension blockedExtension);
 
     void deleteCustomExtensionById(final Long extensionId);
+
+    boolean existsByExtension(String extension);
 }

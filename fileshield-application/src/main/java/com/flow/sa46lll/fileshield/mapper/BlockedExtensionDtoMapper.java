@@ -1,10 +1,10 @@
-package com.flow.sa46lll.fileshield.dto;
+package com.flow.sa46lll.fileshield.mapper;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
 
-public class BlockedExtensionMapper {
+public class BlockedExtensionDtoMapper {
 
-        private BlockedExtensionMapper() {
+        private BlockedExtensionDtoMapper() {
         }
 
         public static BlockedExtension toDomainFromUpdateDto(final Long extensionId) {
