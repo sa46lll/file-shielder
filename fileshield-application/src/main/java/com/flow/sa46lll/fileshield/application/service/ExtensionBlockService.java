@@ -2,6 +2,8 @@ package com.flow.sa46lll.fileshield.application.service;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
+import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
+import com.flow.sa46lll.fileshield.application.mapper.BlockCustomExtensionResponseMapper;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.BlockFixedExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.UnblockCustomExtensionUseCase;
@@ -20,9 +22,10 @@ public class ExtensionBlockService implements BlockCustomExtensionUseCase,
     }
 
     @Override
-    public void blockCustom(final BlockCustomExtensionCommand blockCustomExtensionCommand) {
+    public BlockCustomExtensionResponse blockCustom(final BlockCustomExtensionCommand blockCustomExtensionCommand) {
         BlockedExtension blockedExtension = blockCustomExtensionCommand.toDomain();
-        extensionPersistencePort.blockCustomExtension(blockedExtension);
+        Long savedId = extensionPersistencePort.blockCustomExtension(blockedExtension);
+        return BlockCustomExtensionResponseMapper.toResponse(savedId);
     }
 
     @Override

@@ -28,8 +28,10 @@ public class ExtensionPersistenceAdapter implements ExtensionPersistencePort {
     }
 
     @Override
-    public void blockCustomExtension(BlockedExtension blockedExtension) {
-        blockedExtensionRepository.save(BlockedExtensionMapper.toEntity(blockedExtension));
+    public Long blockCustomExtension(BlockedExtension blockedExtension) {
+        return blockedExtensionRepository
+                .save(BlockedExtensionMapper.toEntity(blockedExtension))
+                .getId();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.flow.sa46lll.fileshield.adapter.in.web;
 
 import com.flow.sa46lll.fileshield.application.dto.ApiResponse;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
+import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
 import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.BlockFixedExtensionUseCase;
@@ -67,9 +68,8 @@ public class ExtensionRestController {
      * @param blockCustomExtensionCommand 차단할 커스텀 확장자
      */
     @PostMapping("/custom-block")
-    public ApiResponse<Void> blockCustom(@RequestBody final BlockCustomExtensionCommand blockCustomExtensionCommand) {
-        blockCustomExtensionUseCase.blockCustom(blockCustomExtensionCommand);
-        return ApiResponse.ok();
+    public ApiResponse<BlockCustomExtensionResponse> blockCustom(@RequestBody final BlockCustomExtensionCommand blockCustomExtensionCommand) {
+        return ApiResponse.ok(blockCustomExtensionUseCase.blockCustom(blockCustomExtensionCommand));
     }
 
     /**
