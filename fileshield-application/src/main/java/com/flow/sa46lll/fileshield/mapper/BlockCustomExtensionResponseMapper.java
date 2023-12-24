@@ -1,6 +1,6 @@
-package com.flow.sa46lll.fileshield.application.mapper;
+package com.flow.sa46lll.fileshield.mapper;
 
-import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
+import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionResponse;
 
 public class BlockCustomExtensionResponseMapper {
 

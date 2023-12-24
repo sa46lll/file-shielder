@@ -1,10 +1,10 @@
-package com.flow.sa46lll.fileshield.application.service;
+package com.flow.sa46lll.fileshield.service;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
-import com.flow.sa46lll.fileshield.application.dto.GetExtensionResponse;
-import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
-import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
-import com.flow.sa46lll.fileshield.application.port.out.ExtensionPersistencePort;
+import com.flow.sa46lll.fileshield.dto.GetExtensionResponse;
+import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
+import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
+import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

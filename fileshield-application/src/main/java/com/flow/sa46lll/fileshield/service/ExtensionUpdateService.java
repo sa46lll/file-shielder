@@ -1,14 +1,14 @@
-package com.flow.sa46lll.fileshield.application.service;
+package com.flow.sa46lll.fileshield.service;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
-import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
-import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
-import com.flow.sa46lll.fileshield.application.dto.BlockedExtensionMapper;
-import com.flow.sa46lll.fileshield.application.mapper.BlockCustomExtensionResponseMapper;
-import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.in.UpdateFixedExtensionUsecase;
-import com.flow.sa46lll.fileshield.application.port.in.UnblockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.out.ExtensionPersistencePort;
+import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionCommand;
+import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionResponse;
+import com.flow.sa46lll.fileshield.dto.BlockedExtensionMapper;
+import com.flow.sa46lll.fileshield.mapper.BlockCustomExtensionResponseMapper;
+import com.flow.sa46lll.fileshield.port.in.BlockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.port.in.UpdateFixedExtensionUsecase;
+import com.flow.sa46lll.fileshield.port.in.UnblockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
 import org.springframework.stereotype.Service;
 
 @Service

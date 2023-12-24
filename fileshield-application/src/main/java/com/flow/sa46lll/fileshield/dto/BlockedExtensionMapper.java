@@ -1,4 +1,4 @@
-package com.flow.sa46lll.fileshield.application.dto;
+package com.flow.sa46lll.fileshield.dto;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
 

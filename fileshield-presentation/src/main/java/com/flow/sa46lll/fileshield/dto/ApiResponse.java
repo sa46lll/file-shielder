@@ -1,4 +1,4 @@
-package com.flow.sa46lll.fileshield.application.dto;
+package com.flow.sa46lll.fileshield.dto;
 
 public record ApiResponse<T>(String code, String message, T data) {
 

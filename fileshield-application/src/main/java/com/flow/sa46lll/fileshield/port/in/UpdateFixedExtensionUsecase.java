@@ -1,4 +1,4 @@
-package com.flow.sa46lll.fileshield.application.port.in;
+package com.flow.sa46lll.fileshield.port.in;
 
 public interface UpdateFixedExtensionUsecase {
 

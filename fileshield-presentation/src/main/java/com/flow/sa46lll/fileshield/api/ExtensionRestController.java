@@ -1,13 +1,13 @@
-package com.flow.sa46lll.fileshield.adapter.in.web;
+package com.flow.sa46lll.fileshield.api;
 
-import com.flow.sa46lll.fileshield.application.dto.ApiResponse;
-import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
-import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
-import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
-import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
-import com.flow.sa46lll.fileshield.application.port.in.UnblockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.in.UpdateFixedExtensionUsecase;
+import com.flow.sa46lll.fileshield.dto.ApiResponse;
+import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionCommand;
+import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionResponse;
+import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
+import com.flow.sa46lll.fileshield.port.in.BlockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
+import com.flow.sa46lll.fileshield.port.in.UnblockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.port.in.UpdateFixedExtensionUsecase;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;

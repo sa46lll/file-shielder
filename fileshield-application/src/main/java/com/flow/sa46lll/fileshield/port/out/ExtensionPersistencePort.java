@@ -1,4 +1,4 @@
-package com.flow.sa46lll.fileshield.application.port.out;
+package com.flow.sa46lll.fileshield.port.out;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
 import java.util.List;

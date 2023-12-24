@@ -1,6 +1,7 @@
-package com.flow.sa46lll.fileshield.adapter.in.web;
+package com.flow.sa46lll.fileshield.api;
 
-import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
+import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
+import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

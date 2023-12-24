@@ -1,7 +1,7 @@
 package com.flow.sa46lll.fileshield.adapter;
 
 import com.flow.sa46lll.fileshield.BlockedExtension;
-import com.flow.sa46lll.fileshield.application.port.out.ExtensionPersistencePort;
+import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
 import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
 import com.flow.sa46lll.fileshield.mapper.BlockedExtensionMapper;
