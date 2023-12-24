@@ -2,6 +2,7 @@ package com.flow.sa46lll.fileshield.adapter.in.web;
 
 import com.flow.sa46lll.fileshield.dto.ApiResponse;
 import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;
+import com.flow.sa46lll.fileshield.exception.InvalidInputException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,13 @@ public class ApiControllerAdvice {
     public <T> ApiResponse<T> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
         log.info("handleHttpRequestMethodNotSupportedException: ", e);
         return ApiResponse.failure(e.getBody().getTitle());
+    }
+
+    @ExceptionHandler(InvalidInputException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public <T> ApiResponse<T> handleInvalidInputException(InvalidInputException e) {
+        log.info("handleInvalidInputException: ", e);
+        return ApiResponse.failure(e.getMessage());
     }
 
     @ExceptionHandler(ExtensionDuplicationException.class)

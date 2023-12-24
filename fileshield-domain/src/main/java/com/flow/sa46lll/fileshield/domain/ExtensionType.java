@@ -1,4 +1,4 @@
-package com.flow.sa46lll.fileshield;
+package com.flow.sa46lll.fileshield.domain;
 
 public enum ExtensionType {
 
