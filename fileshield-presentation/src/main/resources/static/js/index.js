@@ -49,10 +49,9 @@ $(document).ready(function () {
       async: false,
       data: JSON.stringify({extension: customExtension}),
       success: function (response) {
-        console.log(response)
         if (response) {
           console.log('Custom extension added successfully.');
-          addCustomExtension();
+          addCustomExtension(response.data.extensionId);
         } else {
           alert("이미 존재하는 확장자입니다.");
         }
@@ -64,21 +63,49 @@ $(document).ready(function () {
   });
 });
 
-function addCustomExtension() {
+function addCustomExtension(extensionId) {
   const customExtension = $('#customExtension').val();
   if (customExtension.trim() !== "") {
     $('#customExtensionsList').append(
-        '<div class="badge badge-secondary mr-2">' +
-        customExtension +
-        '<button type="button" class="close" onclick="removeCustomExtension(this)" aria-label="Close">'
-        +
-        '<span aria-hidden="true">&times;</span>' +
-        '</button>' +
-        '</div>');
+        `<div class="badge badge-secondary mr-2" data-custom-extension-id="${extensionId}">
+          <span>${customExtension}</span>
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>`
+    );
     $('#customExtension').val('');
   }
 }
 
+/**
+ * x 버튼을 클릭하면 서버에 커스텀 확장자 차단 해제 요청을 전송합니다.
+ */
+$('#customExtensionsList').on('click', '.close', function () {
+  const badge = $(this).closest('.badge');
+  const extensionId = badge.data('custom-extension-id');
+
+  $.ajax({
+    url: `http://localhost:8080/api/v1/file-extensions/${extensionId}/custom-unblock`,
+    type: 'DELETE',
+    dataType: 'json',
+    contentType: 'application/json',
+    async: false,
+    success: function (response) {
+      console.log(response)
+      if (response) {
+        console.log('Custom extension deleted successfully.');
+        removeCustomExtension(badge);
+      } else {
+        console.log('Failed to delete custom extension.');
+      }
+    },
+    error: function () {
+      console.error('Error in Ajax request.');
+    }
+  });
+});
+
 function removeCustomExtension(element) {
-  $(element).parent().remove();
+  $(element).remove();
 }
