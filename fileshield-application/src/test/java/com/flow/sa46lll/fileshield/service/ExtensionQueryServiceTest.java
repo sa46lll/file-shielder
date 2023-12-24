@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.domain.Extension;
 import com.flow.sa46lll.fileshield.domain.ExtensionType;
-import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.port.out.ReadExtensionPersistencePort;
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -31,7 +30,6 @@ class ExtensionQueryServiceTest {
 
         when(readExtensionPersistencePort.findAll()).thenReturn(blockedExtensions);
 
-        GetExtensionsResponse response = sut.findAll();
-        assertThat(response).isNotNull();
+        assertThat(sut.findAll()).isNotNull();
     }
 }
