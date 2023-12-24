@@ -1,8 +1,8 @@
 package com.flow.sa46lll.fileshield.dto;
 
-import com.flow.sa46lll.fileshield.BlockedExtension;
-import com.flow.sa46lll.fileshield.Extension;
-import com.flow.sa46lll.fileshield.ExtensionType;
+import com.flow.sa46lll.fileshield.domain.BlockedExtension;
+import com.flow.sa46lll.fileshield.domain.Extension;
+import com.flow.sa46lll.fileshield.domain.ExtensionType;
 
 public record BlockCustomExtensionCommand(
         String extension

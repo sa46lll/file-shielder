@@ -1,6 +1,6 @@
 package com.flow.sa46lll.fileshield.service;
 
-import com.flow.sa46lll.fileshield.BlockedExtension;
+import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionResponse;
 import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;

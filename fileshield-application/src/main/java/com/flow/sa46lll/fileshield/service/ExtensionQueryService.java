@@ -1,6 +1,6 @@
 package com.flow.sa46lll.fileshield.service;
 
-import com.flow.sa46lll.fileshield.BlockedExtension;
+import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.dto.GetExtensionResponse;
 import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;

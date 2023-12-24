@@ -1,6 +1,6 @@
 package com.flow.sa46lll.fileshield.mapper;
 
-import com.flow.sa46lll.fileshield.BlockedExtension;
+import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 
 public class BlockedExtensionDtoMapper {
 
