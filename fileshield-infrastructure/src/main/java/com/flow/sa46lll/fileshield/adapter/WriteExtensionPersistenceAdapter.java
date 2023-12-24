@@ -7,10 +7,8 @@ import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
 import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
 import com.flow.sa46lll.fileshield.repository.BlockedExtensionRepository;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
-@Transactional
 public class WriteExtensionPersistenceAdapter implements WriteExtensionPersistencePort {
 
     private final BlockedExtensionRepository blockedExtensionRepository;

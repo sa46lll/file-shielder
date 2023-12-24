@@ -20,6 +20,6 @@ public class ReadExtensionPersistenceAdapter implements ReadExtensionPersistence
     public List<BlockedExtension> findAll() {
         return blockedExtensionRepository.findAll().stream()
                 .map(BlockedExtensionMapper::toDomain)
-                .toList());
+                .toList();
     }
 }
