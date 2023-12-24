@@ -5,10 +5,9 @@ import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.application.dto.BlockCustomExtensionResponse;
 import com.flow.sa46lll.fileshield.application.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.application.port.in.BlockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.in.BlockFixedExtensionUseCase;
 import com.flow.sa46lll.fileshield.application.port.in.GetExtensionQuery;
 import com.flow.sa46lll.fileshield.application.port.in.UnblockCustomExtensionUseCase;
-import com.flow.sa46lll.fileshield.application.port.in.UnblockFixedExtensionUseCase;
+import com.flow.sa46lll.fileshield.application.port.in.UpdateFixedExtensionUsecase;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -24,19 +23,16 @@ public class ExtensionRestController {
 
     private final BlockCustomExtensionUseCase blockCustomExtensionUseCase;
     private final UnblockCustomExtensionUseCase unblockCustomExtensionUseCase;
-    private final BlockFixedExtensionUseCase blockFixedExtensionUseCase;
-    private final UnblockFixedExtensionUseCase unblockFixedExtensionUseCase;
+    private final UpdateFixedExtensionUsecase updateFixedExtensionUsecase;
     private final GetExtensionQuery getExtensionQuery;
 
     public ExtensionRestController(final BlockCustomExtensionUseCase blockCustomExtensionUseCase,
                                    final UnblockCustomExtensionUseCase unblockCustomExtensionUseCase,
-                                   final BlockFixedExtensionUseCase blockFixedExtensionUseCase,
-                                   final UnblockFixedExtensionUseCase unblockFixedExtensionUseCase,
+                                   final UpdateFixedExtensionUsecase UpdateFixedExtensionUsecase,
                                    final GetExtensionQuery getExtensionQuery) {
         this.blockCustomExtensionUseCase = blockCustomExtensionUseCase;
         this.unblockCustomExtensionUseCase = unblockCustomExtensionUseCase;
-        this.blockFixedExtensionUseCase = blockFixedExtensionUseCase;
-        this.unblockFixedExtensionUseCase = unblockFixedExtensionUseCase;
+        this.updateFixedExtensionUsecase = UpdateFixedExtensionUsecase;
         this.getExtensionQuery = getExtensionQuery;
     }
 
@@ -47,7 +43,7 @@ public class ExtensionRestController {
      */
     @PatchMapping("/{extensionId}/fixed-block")
     public ApiResponse<Void> blockFixed(@PathVariable("extensionId") final Long extensionId) {
-        blockFixedExtensionUseCase.blockFixed(extensionId);
+        updateFixedExtensionUsecase.blockFixed(extensionId);
         return ApiResponse.ok();
     }
 
@@ -58,7 +54,7 @@ public class ExtensionRestController {
      */
     @PatchMapping("/{extensionId}/fixed-unblock")
     public ApiResponse<Void> unblockFixed(@PathVariable("extensionId") final Long extensionId) {
-        unblockFixedExtensionUseCase.unblockFixed(extensionId);
+        updateFixedExtensionUsecase.unblockFixed(extensionId);
         return ApiResponse.ok();
     }
 

@@ -35,25 +35,16 @@ public class ExtensionPersistenceAdapter implements ExtensionPersistencePort {
     }
 
     @Override
+    public void updateExtensionBlockStatus(BlockedExtension blockedExtension) {
+        blockedExtensionRepository.findByExtensionTypeAndId(ExtensionTypeEntity.FIXED, blockedExtension.getId())
+                .ifPresent(persistedEntity -> {
+                    BlockedExtensionEntity updated = BlockedExtensionMapper.toUpdateEntity(blockedExtension, persistedEntity);
+                    blockedExtensionRepository.save(updated);
+                });
+    }
+
+    @Override
     public void deleteCustomExtensionById(Long extensionId) {
         blockedExtensionRepository.deleteByExtensionTypeAndId(ExtensionTypeEntity.CUSTOM, extensionId);
-    }
-
-    @Override
-    public void blockFixedExtension(Long extensionId) {
-        BlockedExtensionEntity blockedExtension =
-                blockedExtensionRepository.findByExtensionTypeAndId(ExtensionTypeEntity.FIXED, extensionId)
-                        .orElseThrow(() -> new IllegalArgumentException("확장자를 찾을 수 없습니다"));
-
-        blockedExtension.block(); // 개선 필요
-    }
-
-    @Override
-    public void unblockFixedExtension(Long extensionId) {
-        BlockedExtensionEntity blockedExtension =
-                blockedExtensionRepository.findByExtensionTypeAndId(ExtensionTypeEntity.FIXED, extensionId)
-                        .orElseThrow(() -> new IllegalArgumentException("확장자를 찾을 수 없습니다"));
-
-        blockedExtension.unblock();
     }
 }

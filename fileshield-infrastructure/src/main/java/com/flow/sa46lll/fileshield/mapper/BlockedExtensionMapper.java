@@ -5,17 +5,10 @@ import com.flow.sa46lll.fileshield.Extension;
 import com.flow.sa46lll.fileshield.ExtensionType;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
 import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
-import java.util.List;
 
 public class BlockedExtensionMapper {
 
     private BlockedExtensionMapper() {
-    }
-
-    public static List<BlockedExtension> toDomain(List<BlockedExtensionEntity> entities) {
-        return entities.stream()
-                .map(BlockedExtensionMapper::toDomain)
-                .toList();
     }
 
     public static BlockedExtension toDomain(BlockedExtensionEntity entity) {
@@ -31,5 +24,13 @@ public class BlockedExtensionMapper {
                 blockedExtension.getExtension().getExtension(),
                 ExtensionTypeEntity.from(blockedExtension.getExtensionType().name()),
                 blockedExtension.isBlocked());
+    }
+
+    public static BlockedExtensionEntity toUpdateEntity(BlockedExtension domain, BlockedExtensionEntity entity) { // 개선 필요
+        return new BlockedExtensionEntity(
+                domain.getId(),
+                entity.getExtension(),
+                entity.getExtensionType(),
+                domain.isBlocked());
     }
 }

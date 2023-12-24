@@ -7,11 +7,9 @@ public interface ExtensionPersistencePort {
 
     List<BlockedExtension> findAll();
 
-    Long blockCustomExtension(BlockedExtension blockedExtension);
+    Long blockCustomExtension(final BlockedExtension blockedExtension);
 
-    void deleteCustomExtensionById(Long extensionId);
+    void updateExtensionBlockStatus(final BlockedExtension blockedExtension);
 
-    void blockFixedExtension(Long extensionId);
-
-    void unblockFixedExtension(Long extensionId);
+    void deleteCustomExtensionById(final Long extensionId);
 }

@@ -17,6 +17,10 @@ public class BlockedExtension {
         this.isBlocked = isBlocked;
     }
 
+    public BlockedExtension(final Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -39,5 +43,13 @@ public class BlockedExtension {
 
     public boolean isCustom() {
         return extensionType == ExtensionType.CUSTOM;
+    }
+
+    public void block() {
+        isBlocked = true;
+    }
+
+    public void unblock() {
+        isBlocked = false;
     }
 }
