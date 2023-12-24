@@ -1,11 +1,8 @@
 package com.flow.sa46lll.fileshield.port.out;
 
 import com.flow.sa46lll.fileshield.domain.BlockedExtension;
-import java.util.List;
 
-public interface ExtensionPersistencePort {
-
-    List<BlockedExtension> findAll();
+public interface WriteExtensionPersistencePort {
 
     Long blockCustomExtension(final BlockedExtension blockedExtension);
 
@@ -13,5 +10,5 @@ public interface ExtensionPersistencePort {
 
     void deleteCustomExtensionById(final Long extensionId);
 
-    boolean existsByExtension(String extension);
+    boolean existsByExtension(final String extension);
 }

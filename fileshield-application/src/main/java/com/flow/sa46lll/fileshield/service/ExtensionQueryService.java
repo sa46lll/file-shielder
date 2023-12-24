@@ -4,7 +4,7 @@ import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.dto.GetExtensionResponse;
 import com.flow.sa46lll.fileshield.dto.GetExtensionsResponse;
 import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
-import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
+import com.flow.sa46lll.fileshield.port.out.ReadExtensionPersistencePort;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,15 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class ExtensionQueryService implements GetExtensionQuery {
 
-    private final ExtensionPersistencePort extensionPersistencePort;
+    private final ReadExtensionPersistencePort readExtensionPersistencePort;
 
-    public ExtensionQueryService(final ExtensionPersistencePort extensionPersistencePort) {
-        this.extensionPersistencePort = extensionPersistencePort;
+    public ExtensionQueryService(final ReadExtensionPersistencePort readExtensionPersistencePort) {
+        this.readExtensionPersistencePort = readExtensionPersistencePort;
     }
 
     @Override
     public GetExtensionsResponse findAll() {
-        List<BlockedExtension> extensions = extensionPersistencePort.findAll();
+        List<BlockedExtension> extensions = readExtensionPersistencePort.findAll();
         List<GetExtensionResponse> fixedExtensions = extensions.stream()
                 .filter(BlockedExtension::isFixed)
                 .map(GetExtensionResponse::of)

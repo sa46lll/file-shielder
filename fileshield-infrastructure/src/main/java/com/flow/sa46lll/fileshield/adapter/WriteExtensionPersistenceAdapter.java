@@ -2,29 +2,21 @@ package com.flow.sa46lll.fileshield.adapter;
 
 import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.mapper.BlockedExtensionMapper;
-import com.flow.sa46lll.fileshield.port.out.ExtensionPersistencePort;
+import com.flow.sa46lll.fileshield.port.out.WriteExtensionPersistencePort;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
 import com.flow.sa46lll.fileshield.entity.ExtensionTypeEntity;
 import com.flow.sa46lll.fileshield.repository.BlockedExtensionRepository;
-import java.util.List;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @Transactional
-public class ExtensionPersistenceAdapter implements ExtensionPersistencePort {
+public class WriteExtensionPersistenceAdapter implements WriteExtensionPersistencePort {
 
     private final BlockedExtensionRepository blockedExtensionRepository;
 
-    public ExtensionPersistenceAdapter(final BlockedExtensionRepository blockedExtensionRepository) {
+    public WriteExtensionPersistenceAdapter(final BlockedExtensionRepository blockedExtensionRepository) {
         this.blockedExtensionRepository = blockedExtensionRepository;
-    }
-
-    @Override
-    public List<BlockedExtension> findAll() {
-        return blockedExtensionRepository.findAll().stream()
-                .map(BlockedExtensionMapper::toDomain)
-                .toList();
     }
 
     @Override
