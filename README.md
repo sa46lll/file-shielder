@@ -27,7 +27,7 @@
 ### 확장자 목록 조회
 
 ```http request
-PATCH /api/v1/file-extensions
+GET /api/v1/file-extensions
 ```
 
 > Response
