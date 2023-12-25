@@ -42,4 +42,9 @@ public class WriteExtensionPersistenceAdapter implements WriteExtensionPersisten
     public boolean existsByExtension(String extension) {
         return blockedExtensionRepository.existsByExtension(extension);
     }
+
+    @Override
+    public void save(BlockedExtension blockedExtension) {
+        blockedExtensionRepository.save(BlockedExtensionMapper.toEntity(blockedExtension));
+    }
 }

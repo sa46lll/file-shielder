@@ -11,4 +11,6 @@ public interface WriteExtensionPersistencePort {
     void deleteCustomExtensionById(final Long extensionId);
 
     boolean existsByExtension(final String extension);
+
+    void save(final BlockedExtension blockedExtension);
 }

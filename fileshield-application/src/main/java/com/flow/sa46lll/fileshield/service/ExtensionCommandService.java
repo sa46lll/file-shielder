@@ -3,10 +3,12 @@ package com.flow.sa46lll.fileshield.service;
 import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionResponse;
+import com.flow.sa46lll.fileshield.dto.SaveExtensionDto;
 import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;
 import com.flow.sa46lll.fileshield.mapper.BlockedExtensionDtoMapper;
 import com.flow.sa46lll.fileshield.mapper.BlockCustomExtensionResponseMapper;
 import com.flow.sa46lll.fileshield.port.in.BlockCustomExtensionUseCase;
+import com.flow.sa46lll.fileshield.port.in.SaveExtensionUseCase;
 import com.flow.sa46lll.fileshield.port.in.UpdateFixedExtensionUsecase;
 import com.flow.sa46lll.fileshield.port.in.UnblockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.port.out.WriteExtensionPersistencePort;
@@ -16,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class ExtensionCommandService implements BlockCustomExtensionUseCase,
-        UnblockCustomExtensionUseCase, UpdateFixedExtensionUsecase {
+        UnblockCustomExtensionUseCase, UpdateFixedExtensionUsecase, SaveExtensionUseCase {
 
     private final WriteExtensionPersistencePort writeExtensionPersistencePort;
 
@@ -60,5 +62,13 @@ public class ExtensionCommandService implements BlockCustomExtensionUseCase,
 
     private void updateExtensionBlockStatus(final BlockedExtension blockedExtension) {
         writeExtensionPersistencePort.updateExtensionBlockStatus(blockedExtension);
+    }
+
+    @Override
+    public void save(final SaveExtensionDto extension) {
+        validateExtensionDuplication(extension.extension());
+
+        BlockedExtension blockedExtension = BlockedExtensionDtoMapper.toDomainFromSaveDto(extension);
+        writeExtensionPersistencePort.save(blockedExtension);
     }
 }
