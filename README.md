@@ -16,17 +16,17 @@
 
 ### 커스텀 확장자 차단 (생성)
 
-- 커스텀 확장자를 추가해서 차단할 수 있습니다.
+- 커스텀 확장자를 차단할 수 있습니다.
 
 ### 커스텀 확장자 차단 해제 (삭제)
 
-- 커스텀 확장자를 삭제해서 차단을 해제할 수 있습니다.
+- 커스텀 확장자를 차단을 해제할 수 있습니다.
 
 ## API 명세
 
 ### 확장자 목록 조회
 
-```
+```http request
 PATCH /api/v1/file-extensions
 ```
 
@@ -43,19 +43,19 @@ PATCH /api/v1/file-extensions
 
 ### 고정 확장자 차단
 
-```
+```http request
 PATCH /api/v1/file-extensions/{{extensionId}}/fixed-block
 ```
 
 ### 고정 확장자 차단 해제
 
-```
+```http request
 PATCH /api/v1/file-extensions/{{extensionId}}/fixed-unblock
 ```
 
 ### 커스텀 확장자 차단 (생성)
 
-```
+```http request
 POST /api/v1/file-extensions/custom-block
 ```
 
@@ -73,7 +73,7 @@ POST /api/v1/file-extensions/custom-block
 
 ### 커스텀 확장자 차단 해제 (삭제)
 
-```
+```http request
 DELETE /api/v1/file-extensions/{{extensionId}}/custom-unblock
 ```
 
