@@ -58,7 +58,7 @@ label {
 }
 
 .badge-secondary {
-  background-color: #6c757d;
+  background-color: #007bff;
   margin-right: 0.5rem;
 }
 
@@ -69,11 +69,6 @@ label {
   padding-left: 0.2rem;
   line-height: 1;
   vertical-align: middle;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  border: none;
 }
 
 .elegant-checkbox .custom-control-label::before {
