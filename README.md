@@ -114,5 +114,7 @@ DELETE /api/v1/file-extensions/{{extensionId}}/custom-unblock
 - Gradle
 - JPA
 - H2
+- Thymeleaf
+- JUnit5
 
 ![file-extension-ss](https://github.com/sa46lll/file-shield/assets/62706048/65f8414b-b9fd-4d7a-b87b-2d55e6c8a369)
