@@ -63,6 +63,7 @@ public class ExtensionRestController {
      * 커스텀 확장자 차단
      *
      * @param blockCustomExtensionCommand 차단할 커스텀 확장자
+     * @return 차단된 커스텀 확장자 식별자
      */
     @PostMapping("/custom-block")
     public ApiResponse<BlockCustomExtensionResponse> blockCustom(@RequestBody @Valid final BlockCustomExtensionCommand blockCustomExtensionCommand) {

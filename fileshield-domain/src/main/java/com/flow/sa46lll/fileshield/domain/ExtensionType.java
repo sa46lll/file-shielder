@@ -1,7 +1,6 @@
 package com.flow.sa46lll.fileshield.domain;
 
 public enum ExtensionType {
-
     CUSTOM,
     FIXED;
 
