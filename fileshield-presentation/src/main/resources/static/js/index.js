@@ -6,7 +6,7 @@ $(document).ready(function () {
     const checkbox = $(this);
     const extensionId = $(this).data('extension-id');
     const isBlocked = this.checked;
-    const apiUrl = `http://localhost:8080/api/v1/file-extensions/${extensionId}/${isBlocked
+    const apiUrl = `/api/v1/file-extensions/${extensionId}/${isBlocked
         ? 'fixed-block' : 'fixed-unblock'}`;
 
     $.ajax({
@@ -42,7 +42,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-      url: 'http://localhost:8080/api/v1/file-extensions/custom-block',
+      url: '/api/v1/file-extensions/custom-block',
       type: 'POST',
       dataType: 'json',
       contentType: 'application/json',
@@ -99,7 +99,7 @@ $('#customExtensionsList').on('click', '.close', function () {
   const extensionId = badge.data('custom-extension-id');
 
   $.ajax({
-    url: `http://localhost:8080/api/v1/file-extensions/${extensionId}/custom-unblock`,
+    url: `/api/v1/file-extensions/${extensionId}/custom-unblock`,
     type: 'DELETE',
     dataType: 'json',
     contentType: 'application/json',
