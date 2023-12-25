@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import com.flow.sa46lll.fileshield.dto.BlockCustomExtensionCommand;
 import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;
+import com.flow.sa46lll.fileshield.port.out.ReadExtensionPersistencePort;
 import com.flow.sa46lll.fileshield.port.out.WriteExtensionPersistencePort;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,9 @@ class ExtensionCommandServiceTest {
 
     @Mock
     private WriteExtensionPersistencePort writeExtensionPersistencePort;
+
+    @Mock
+    private ReadExtensionPersistencePort readExtensionPersistencePort;
 
     @Test
     void 고정_확장자를_차단한다() {
@@ -55,6 +59,7 @@ class ExtensionCommandServiceTest {
             BlockCustomExtensionCommand command = new BlockCustomExtensionCommand("bat");
 
             when(writeExtensionPersistencePort.existsByExtension(any())).thenReturn(false);
+            when(readExtensionPersistencePort.countByExtensionType(any())).thenReturn(0);
             sut.blockCustom(command);
 
             verify(writeExtensionPersistencePort).blockCustomExtension(any());
