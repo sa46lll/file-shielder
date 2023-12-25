@@ -8,6 +8,7 @@ import com.flow.sa46lll.fileshield.port.in.BlockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.port.in.GetExtensionQuery;
 import com.flow.sa46lll.fileshield.port.in.UnblockCustomExtensionUseCase;
 import com.flow.sa46lll.fileshield.port.in.UpdateFixedExtensionUsecase;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -28,11 +29,11 @@ public class ExtensionRestController {
 
     public ExtensionRestController(final BlockCustomExtensionUseCase blockCustomExtensionUseCase,
                                    final UnblockCustomExtensionUseCase unblockCustomExtensionUseCase,
-                                   final UpdateFixedExtensionUsecase UpdateFixedExtensionUsecase,
+                                   final UpdateFixedExtensionUsecase updateFixedExtensionUsecase,
                                    final GetExtensionQuery getExtensionQuery) {
         this.blockCustomExtensionUseCase = blockCustomExtensionUseCase;
         this.unblockCustomExtensionUseCase = unblockCustomExtensionUseCase;
-        this.updateFixedExtensionUsecase = UpdateFixedExtensionUsecase;
+        this.updateFixedExtensionUsecase = updateFixedExtensionUsecase;
         this.getExtensionQuery = getExtensionQuery;
     }
 
@@ -64,7 +65,7 @@ public class ExtensionRestController {
      * @param blockCustomExtensionCommand 차단할 커스텀 확장자
      */
     @PostMapping("/custom-block")
-    public ApiResponse<BlockCustomExtensionResponse> blockCustom(@RequestBody final BlockCustomExtensionCommand blockCustomExtensionCommand) {
+    public ApiResponse<BlockCustomExtensionResponse> blockCustom(@RequestBody @Valid final BlockCustomExtensionCommand blockCustomExtensionCommand) {
         return ApiResponse.ok(blockCustomExtensionUseCase.blockCustom(blockCustomExtensionCommand));
     }
 
