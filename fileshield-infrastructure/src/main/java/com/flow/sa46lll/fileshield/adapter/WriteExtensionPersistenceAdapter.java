@@ -2,7 +2,6 @@ package com.flow.sa46lll.fileshield.adapter;
 
 import com.flow.sa46lll.fileshield.domain.BlockedExtension;
 import com.flow.sa46lll.fileshield.entity.NotFoundException;
-import com.flow.sa46lll.fileshield.exception.InvalidInputException;
 import com.flow.sa46lll.fileshield.mapper.BlockedExtensionMapper;
 import com.flow.sa46lll.fileshield.port.out.WriteExtensionPersistencePort;
 import com.flow.sa46lll.fileshield.entity.BlockedExtensionEntity;
@@ -30,7 +29,7 @@ public class WriteExtensionPersistenceAdapter implements WriteExtensionPersisten
     public void updateExtensionBlockStatus(BlockedExtension blockedExtension) {
         BlockedExtensionEntity persistedEntity =
                 blockedExtensionRepository.findByExtensionTypeAndId(ExtensionTypeEntity.FIXED, blockedExtension.getId())
-                        .orElseThrow(() -> new NotFoundException("확장자를 찾을 수 없습니다."));
+                        .orElseThrow(() -> new NotFoundException("확장자가 존재하지 않습니다."));
 
         blockedExtensionRepository.save(BlockedExtensionMapper.toUpdateEntity(blockedExtension, persistedEntity));
     }

@@ -81,6 +81,7 @@ DELETE /api/v1/file-extensions/{{extensionId}}/custom-unblock
 
 | API             | Code | Message                       | Description     |
 |-----------------|------|-------------------------------|-----------------|
+| 고정 확장자 차단       | 404  | NotFoundException             | 확장자가 존재하지 않습니다. |
 | 커스텀 확장자 차단 (생성) | 400  | InvalidInputException         | 확장자가 올바르지 않습니다. |
 |                 | 409  | ExtensionDuplicationException | 확장자가 이미 존재합니다.  |
 
