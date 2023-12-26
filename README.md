@@ -118,4 +118,34 @@ DELETE /api/v1/file-extensions/{{extensionId}}/custom-unblock
 - Thymeleaf
 - JUnit5
 
+## 빌드 및 실행
+
+### 빌드
+
+```shell
+./gradlew clean build
+```
+
+### 실행
+
+```shell
+./gradlew :fileshield-bootstrap:bootRun
+```
+
+브라우저에서 http://localhost:8080/home 로 접속합니다.
+
+## 추가 구현 사항
+
+### 확장자 중복 체크
+  - 확장자가 이미 존재하는 경우 예외를 발생시킵니다.
+### 확장자 유효성 체크
+  - 확장자는 공백이거나 20자를 초과할 수 없습니다.
+  - 확장자는 영문자, 숫자로 이루어져야 합니다.
+### 초기 데이터 생성
+  - 개발 및 테스트 편의를 위해 ApplicationRunner를 활용하여 임시로 초기 데이터를 생성합니다.
+### 테스트 코드
+  - Domain과 Application 계층에 대한 테스트 코드를 작성하였습니다.
+  - Domain 계층은 비즈니스 규칙과 제약 조건을 테스트하기 위해 상태 기반 테스트를 작성하였습니다.
+  - Application 계층은 비즈니스 로직이 변경되는 경우를 고려하여 행위 기반 테스트를 작성하였습니다.
+
 ![file-extension-ss](https://github.com/sa46lll/file-shield/assets/62706048/65f8414b-b9fd-4d7a-b87b-2d55e6c8a369)
