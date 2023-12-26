@@ -1,6 +1,7 @@
 package com.flow.sa46lll.fileshield.adapter.in.web;
 
 import com.flow.sa46lll.fileshield.dto.ApiResponse;
+import com.flow.sa46lll.fileshield.entity.NotFoundException;
 import com.flow.sa46lll.fileshield.exception.ExtensionDuplicationException;
 import com.flow.sa46lll.fileshield.exception.InvalidInputException;
 import org.slf4j.Logger;
@@ -52,6 +53,13 @@ public class ApiControllerAdvice {
     @ResponseStatus(HttpStatus.CONFLICT)
     public <T> ApiResponse<T> handleExtensionDuplicationException(ExtensionDuplicationException e) {
         log.info("handleExtensionDuplicationException: ", e);
+        return ApiResponse.failure(e.getMessage());
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public <T> ApiResponse<T> handleNotFoundException(NotFoundException e) {
+        log.info("handleNotFoundException: ", e);
         return ApiResponse.failure(e.getMessage());
     }
 
